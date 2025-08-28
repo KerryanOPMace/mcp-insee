@@ -1,0 +1,6 @@
+pynsee
+requests
+fastmcp
+rapidfuzz
+pandas
+numpy

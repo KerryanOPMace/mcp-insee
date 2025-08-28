@@ -1,0 +1,9 @@
+[project]
+name = "insee-mcp"
+version = "0.1.0"
+description = "Serveur MCP basé sur pyinsee"
+authors = [{ name="Kerryan", email="kerryan.mace@student-cs.fr"}]
+dependencies = ["fastmcp", "pyinsee"]
+
+[project.scripts]
+insee-mcp = "insee_mcp.server:run"
