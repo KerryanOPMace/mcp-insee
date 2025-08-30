@@ -1,0 +1,15 @@
+{
+	"servers": {
+		"insee": {
+			"command": "uvx",
+			"args": [
+				"insee-mcp",
+				"insee-mcp"
+			],
+			"env": {
+				"API_KEY": "37c0c29e-4a81-4ee3-80c2-9e4a819ee313"
+			},
+			"type": "stdio"
+		}
+	}
+}

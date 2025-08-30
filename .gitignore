@@ -1,2 +1,18 @@
 .env
 insee_env
+PUBLISH.md
+Repos
+test
+
+# Build artifacts
+dist/
+build/
+*.egg-info/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+mcp_insee.json
+.vscode/

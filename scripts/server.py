@@ -1,11 +1,15 @@
 from fastmcp import FastMCP
-from sirene import search_sirene_company
+from scripts.sirene import search_sirene_company
 import os
 import pynsee
+from pynsee import init_conn
+from pynsee.utils import clear_all_cache
+
+clear_all_cache()
 
 def run():
+    clear_all_cache()
     app = FastMCP("insee-server")
-    pynsee.init_conn(sirene_key=os.getenv("API_KEY"))
     @app.tool()
     async def search_company(
         company_name: str = None,
@@ -25,10 +29,15 @@ def run():
         Returns:
             dict: Informations clés sur l'entreprise.
         """
+        print("API KEY inside server:", os.getenv("API_KEY"))
+        init_conn(sirene_key=os.getenv("API_KEY"))
         return search_sirene_company(company_name, siren, siret, fuzzy)
 
-    # Lancement du serveur avec transport streamable-http
-    app.run(transport="streamable-http", host="127.0.0.1", port=8000, path="/mcp")
+    # Launching with streamable http
+    # app.run(transport="stdiostreamable-http", host="127.0.0.1", port=8000, path="/mcp")
+
+    # Launching with stdio
+    app.run(transport="stdio")
 
 if __name__ == "__main__":
     run()

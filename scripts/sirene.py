@@ -60,7 +60,7 @@ def search_sirene_company(
         if candidates:
             df = pd.concat(candidates).drop_duplicates()
 
-        # 🔹 Optionnel : fuzzy matching if no exact matching
+        # Optionnel : fuzzy matching if no exact matching
         if fuzzy and not df.empty:
             names = df["denominationUniteLegale"].fillna("").tolist()
             best_match = process.extractOne(company_name, names, score_cutoff=100)
